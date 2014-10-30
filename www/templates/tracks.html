@@ -1,0 +1,25 @@
+<ion-nav-bar class="bar-dark nav-title-slide-ios7" align-title="center">
+  <ion-nav-back-button class="button-icon ion-arrow-left-c">
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view title="Top Tracks Of {{artist}}">
+  <ion-content>
+      <table st-table="tracksResult" class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Playcount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="track in tracksResult.toptracks.track | orderBy:'name'">
+          <td><a href="{{track.url}}">{{track.name}}</a></td>
+          <td>{{track.playcount}}</td>
+        </tr>
+        </tbody>
+      </table>
+  </ion-content>
+</ion-view>
+
+
+

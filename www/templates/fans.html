@@ -1,0 +1,25 @@
+<ion-nav-bar class="bar-dark nav-title-slide-ios7" align-title="center">
+  <ion-nav-back-button class="button-icon ion-arrow-left-c">
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view title="Top Fans Of {{artist}}">
+  <ion-content>
+    <table st-table="fansResult" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Real name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="fan in fansResult.topfans.user | orderBy:'name'">
+        <td><a href="{{fan.url}}">{{fan.name}}</a></td>
+        <td>{{fan.realname}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ion-content>
+</ion-view>
+
+
+

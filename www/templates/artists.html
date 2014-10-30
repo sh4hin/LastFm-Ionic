@@ -1,0 +1,36 @@
+<ion-nav-bar class="bar-dark nav-title-slide-ios7" align-title="center">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-view title="Top Artists By Country">
+    <ion-nav-buttons side="left" ng-controller="Main">
+        <button class="button" ng-click="goBack();">
+            Home
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+    <div class="item col-header item-icon-right">
+        <div class="flex-container wrap">
+          <div ng-repeat="column in data.columns">
+            <div class="column" ng-class="{ 'underlined' : data.sortOn === column.id }">{{column.name}}&nbsp;</div>
+            <div class="column-sort">
+              <i ng-class="{'ion-chevron-up' : data.sortReverse === false, 'ion-chevron-down' : data.sortReverse === true} " ng-if="data.sortOn === column.id"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item low-pad-item item-icon-right" ng-repeat="artist in artistsResult.topartists.artist | orderBy:listeners">
+        <div class="flex-container wrap">
+            <div class="column">{{artist.name}}&nbsp;</div>
+            <div class="column">{{artist.listeners}}&nbsp;</div>
+            <div class="column"><a href="#/topAlbums/{{artist.name}}">Top Albums</a></div>
+           <div class="column"><a href="#/topFans/{{artist.name}}">Top Fans</a></div>
+          <div class="column"><a href="#/topTracks/{{artist.name}}" >Top Tracks</a></div>
+
+          </div>
+        </div>
+
+  </ion-content>
+</ion-view>
